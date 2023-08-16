@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body{
+    
+    flex-direction: column;
+    display: flex;
+    height: 90vh;
+    width: 100%;
+}
+
+.body-banners {
+    width: 100%;
+    height:30rem;
+    background-color: black;
+    perspective: 1000px;
+    
+}
+
+.body-banners img {
+    position:static;
+    transform-style: preserve-3d; /* Mantém o elemento filho em 3D */
+    margin-top: 5%;
+    height: 20rem;
+    background-color: black;
+    animation:teste 15s infinite;
+   
+
+}
+@keyframes teste {
+    0%{
+        transform: rotateY(0deg);
+    }
+    25% {
+        transform: rotateY(90deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    75%{
+        transform: rotateY(270deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.vyrus-bar {
+    color: white;
+    font-style: italic;
+    text-shadow:  1px 1px 1px rgb(4, 0, 5);
+    background-image: linear-gradient(to right , rgb(10, 10, 10) , rgb(0, 0, 0) ,rgb(240, 229, 229));
+}
+
+
+
+
+
+
+
+
