@@ -1,3 +1,7 @@
+
+Para testar estre projeto com o uso da Api basta acessar a pasta planetario\src\main\java\com\api\planetario\PlanetarioApplication.java
+E startar o codigo Java no console.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
