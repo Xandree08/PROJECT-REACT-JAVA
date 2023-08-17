@@ -1,7 +1,7 @@
 
 Para testar estre projeto com o uso da Api basta acessar a pasta planetario\src\main\java\com\api\planetario\PlanetarioApplication.java
 E startar o Spring Boot.
-Obs : Está em MYSQL então sera necessário fazer algumas alterações no application.properties  .
+Obs : O projeto utliza banco de dados MYSQL então sera necessário fazer algumas alterações no application.properties  .
 
 # Getting Started with Create React App
 
