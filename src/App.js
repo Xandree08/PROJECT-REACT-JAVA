@@ -3,7 +3,7 @@ import './App.css';
 import Header from'./Header/Header'
 import Nav from './Nav/nav';
 import Body from './Body/body';
-import Login from './Header/Login/login';
+import Login from './Login/login';
 import { AuthProvider } from './Header/AuthContext';
 
 

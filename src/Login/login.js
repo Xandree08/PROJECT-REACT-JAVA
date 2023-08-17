@@ -2,10 +2,10 @@ import { json } from 'react-router-dom';
 import './login.css'
 import React, { useState } from 'react'
 import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
-import Header from '../Header';
+import Header from '../Header/Header';
 import { createContext, useContext } from 'react';
 import { useEffect } from 'react';
-import { useAuth } from '../AuthContext';
+import { useAuth } from '../Header/AuthContext';
 
 
 
@@ -64,8 +64,7 @@ function Login() {
 
     }
 
-
-
+     
     const formregister = (event) => {
         event.preventDefault()
         if (validEmail && validPassword && validUser && validConfirmPassword) {
@@ -100,8 +99,6 @@ function Login() {
 
     const Formlogins = async (event) => {
 
-
-
         event.preventDefault();
 
         const datalogin = {
@@ -109,6 +106,8 @@ function Login() {
             password: loginPassword
         }
         
+        try{
+
             const response = await fetch('http://localhost:8080/auth/login', {
                 method: 'POST',
                 headers: {
@@ -119,42 +118,43 @@ function Login() {
 
             if (response.ok) {
                 const data = await response.text();
-                alert("Logado")
                 setToken(data)
-                console.log(data)
-                const Formslo = document.querySelector(".form-login");
-               
-                const Dashboard = async ()=> {
-
-                    try {
-                    const DataUser = await fetch ('http://localhost:8080/dashboard' , {
-                        method: 'GET',
-                        headers: {  
-                            'Authorization': `Bearer ${token}`
+                alert("Logado com sucesso")
+                const Dashboard = async () => {
+                    const DataUser = await fetch('http://localhost:8080/dashboard', {
+                    method: 'GET',
+                    headers: {
+                    'Authorization': `Bearer ${data}`
                     }
                     })
-            
-                    const saveDataUser = await DataUser.json()
-            
-                    setFormUser(saveDataUser);
-                    
-            
-                }catch(error){
-                   console.log(error);
+                       if(token){
+                       const saveDataUser = await DataUser.json();
+                       localStorage.setItem("FormUser",JSON.stringify(saveDataUser));
+                       setFormUser(saveDataUser);  
+                       window.location.reload(true);
+                     }
+                                
+                 }
+                 Dashboard();
+
+
+                setLoginPassword("")
+                setLoginUser("")
                 
-            
-                }
-            }
+                
+                
+           }else(
+            alert("Cheque suas credenciais , senha ou email inválidos !")
+           )
+        }catch(error){
 
-            Dashboard();
-               
-    }
-    }
+            alert("Erro na requisição da API ")
 
-
-   
-
+        }
+        }
     
+
+
 
 
 
